@@ -12,4 +12,17 @@ public class StudentManager
     String studentID;
     int[] marks = new int[3];
     int totalMark;
+
+    // Constructor to initialize student attributes
+    public Student(String name, String studentID, int[] marks) {
+        this.name = name;
+        this.studentID = studentID;
+        this.marks = marks;
+    }
+    
+     // Utility method to represent student information as a string
+        @Override
+        public String toString() {
+            return "Student{" + "name='" + name + '\'' + ", studentID='" + studentID + '\'' + ", marks=" + Arrays.toString(marks) + ", totalMark=" + totalMark + '}';
+    }
 }
