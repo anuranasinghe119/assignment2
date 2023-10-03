@@ -78,6 +78,11 @@ public class StudentManager {
                 .limit(5)
                 .collect(Collectors.toList());
     }
-
+    
+    // Main function where the program execution starts
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        List<Student> students = new ArrayList<>();
+    }
 }
 
