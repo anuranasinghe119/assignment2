@@ -56,5 +56,20 @@ public class StudentManager {
         return students;
     }
 
+    // Function to filter students based on total marks below a given threshold
+    public static List<Student> studentsBelowThreshold(List<Student> students, int threshold) {
+        return students.stream()
+        .filter(s -> s.totalMark < threshold)
+        .collect(Collectors.toList());
+    }
+
+    // Function to get top 5 students based on highest marks
+    public static List<Student> topFiveHighest(List<Student> students) {
+        return students.stream()
+        .sorted((s1, s2) -> Integer.compare(s2.totalMark, s1.totalMark))
+        .limit(5)
+        .collect(Collectors.toList());
+    }
+
 }
 
