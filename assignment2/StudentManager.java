@@ -41,9 +41,7 @@ public class StudentManager {
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
             String line;
             while ((line = br.readLine()) != null) {
-                // Ignore comment lines starting with '#'
                 if (!line.startsWith("#") && !line.trim().isEmpty()) {
-                    // Split the line into attributes and create a Student object
                     String[] parts = line.split(", ");
                     if(parts.length < 5) {
                         System.out.println("Skipping invalid line: " + line);
@@ -54,8 +52,12 @@ public class StudentManager {
                     students.add(student);
                 }
             }
+        } catch (FileNotFoundException e) {
+            System.out.println("Error: File not found!");
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Error reading from the file!");
+        } catch (NumberFormatException e) {
+            System.out.println("Error: Invalid number format in the file!");
         }
         return students;
     }
