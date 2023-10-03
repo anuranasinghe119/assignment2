@@ -45,7 +45,7 @@ public class StudentManager {
                 if (!line.startsWith("#") && !line.trim().isEmpty()) {
                     // Split the line into attributes and create a Student object
                     String[] parts = line.split(", ");
-                     if(parts.length < 5) {
+                    if(parts.length < 5) {
                         System.out.println("Skipping invalid line: " + line);
                         continue;
                     }
@@ -87,8 +87,7 @@ public class StudentManager {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         List<Student> students = new ArrayList<>();
-
-        // Main loop for menu-driven interaction
+        int choice = -1;  // initialize with a default value
         while (true) {
             System.out.println("1. Read from file");
             System.out.println("2. Print all students and total marks");
@@ -96,17 +95,23 @@ public class StudentManager {
             System.out.println("4. Top 5 students");
             System.out.println("5. Exit");
 
-            int choice = scanner.nextInt();
+            if (scanner.hasNextInt()) {  // Check if the next token is an integer
+                choice = scanner.nextInt();
+                scanner.nextLine();  // Consume the newline
+            } else {
+                System.out.println("Please enter a valid choice (1-5).");
+                scanner.nextLine();  // Clear the invalid input
+                continue;
+            }
 
             // Handle menu choices
             switch (choice) {
                 case 1:
                     System.out.print("Enter filename: ");
-                    String fileName = scanner.next();
+                    String fileName = scanner.nextLine();
                     students = readFromFile(fileName);
                     break;
                 case 2:
-                    // Print all students' details
                     for (Student s : students) {
                         System.out.println(s);
                     }
@@ -114,7 +119,7 @@ public class StudentManager {
                 case 3:
                     System.out.print("Enter threshold: ");
                     int threshold = scanner.nextInt();
-                    // Fetch and print students below the given threshold
+                    scanner.nextLine();  // Consume the newline
                     List<Student> belowThreshold = studentsBelowThreshold(students, threshold);
                     for (Student s : belowThreshold) {
                         System.out.println(s);
@@ -132,8 +137,7 @@ public class StudentManager {
                         System.out.println(s);
                     }
                     break;
-                     case 5:
-                    // Exit the program
+                case 5:
                     System.exit(0);
             }
 
