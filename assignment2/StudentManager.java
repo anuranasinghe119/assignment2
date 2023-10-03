@@ -70,6 +70,14 @@ public class StudentManager {
         .limit(5)
         .collect(Collectors.toList());
     }
+    
+    // Function to get top 5 students based on lowest marks
+    public static List<Student> topFiveLowest(List<Student> students) {
+        return students.stream()
+                .sorted(Comparator.comparingInt(s -> s.totalMark))
+                .limit(5)
+                .collect(Collectors.toList());
+    }
 
 }
 
