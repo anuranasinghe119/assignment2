@@ -1,3 +1,6 @@
+import java.util.*;
+import java.io.*;
+import java.util.stream.*;
 
 /**
  * This is a program to develop a simple program to compute statistics of students' marks in an assignment.
@@ -24,5 +27,28 @@ public class StudentManager
         @Override
         public String toString() {
             return "Student{" + "name='" + name + '\'' + ", studentID='" + studentID + '\'' + ", marks=" + Arrays.toString(marks) + ", totalMark=" + totalMark + '}';
+    }
+}
+
+
+    // Function to read student details from a file
+    public static List<Student> readFromFile(String fileName) {
+        List<Student> students = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                // Ignore comment lines starting with '#'
+                if (!line.startsWith("#") && !line.trim().isEmpty()) {
+                    // Split the line into attributes and create a Student object
+                    String[] parts = line.split(", ");
+                    int[] marks = {Integer.parseInt(parts[2]), Integer.parseInt(parts[3]), Integer.parseInt(parts[4])};
+                    Student student = new Student(parts[0], parts[1], marks);
+                    students.add(student);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return students;
     }
 }
