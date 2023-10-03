@@ -93,8 +93,22 @@ public class StudentManager {
             System.out.println("5. Exit");
 
             int choice = scanner.nextInt();
-        }
 
+            // Handle menu choices
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter filename: ");
+                    String fileName = scanner.next();
+                    students = readFromFile(fileName);
+                    break;
+                case 2:
+                    // Print all students' details
+                    for (Student s : students) {
+                        System.out.println(s);
+                    }
+                    break;
+            }
+
+        }
     }
-}
 
