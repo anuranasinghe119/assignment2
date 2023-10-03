@@ -70,19 +70,31 @@ public class StudentManager {
         .limit(5)
         .collect(Collectors.toList());
     }
-    
+
     // Function to get top 5 students based on lowest marks
     public static List<Student> topFiveLowest(List<Student> students) {
         return students.stream()
-                .sorted(Comparator.comparingInt(s -> s.totalMark))
-                .limit(5)
-                .collect(Collectors.toList());
+        .sorted(Comparator.comparingInt(s -> s.totalMark))
+        .limit(5)
+        .collect(Collectors.toList());
     }
-    
+
     // Main function where the program execution starts
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         List<Student> students = new ArrayList<>();
+
+        // Main loop for menu-driven interaction
+        while (true) {
+            System.out.println("1. Read from file");
+            System.out.println("2. Print all students and total marks");
+            System.out.println("3. Students below threshold");
+            System.out.println("4. Top 5 students");
+            System.out.println("5. Exit");
+
+            int choice = scanner.nextInt();
+        }
+
     }
 }
 
