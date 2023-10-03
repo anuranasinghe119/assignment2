@@ -1,5 +1,6 @@
 #BlueJ class context
 comment0.target=StudentManager
+comment0.text=\r\n\ This\ is\ a\ program\ to\ develop\ a\ simple\ program\ to\ compute\ statistics\ of\ students'\ marks\ in\ an\ assignment.\r\n\r\n\ @author\ (anupa)\r\n\ @version\ (version\ 1.0\ 28/09/2023)\r\n
 comment1.params=fileName
 comment1.target=java.util.List\ readFromFile(java.lang.String)
 comment2.params=students\ threshold

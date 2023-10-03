@@ -45,6 +45,10 @@ public class StudentManager {
                 if (!line.startsWith("#") && !line.trim().isEmpty()) {
                     // Split the line into attributes and create a Student object
                     String[] parts = line.split(", ");
+                     if(parts.length < 5) {
+                        System.out.println("Skipping invalid line: " + line);
+                        continue;
+                    }
                     int[] marks = {Integer.parseInt(parts[2]), Integer.parseInt(parts[3]), Integer.parseInt(parts[4])};
                     Student student = new Student(parts[0], parts[1], marks);
                     students.add(student);
