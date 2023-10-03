@@ -128,6 +128,9 @@ public class StudentManager {
                         System.out.println(s);
                     }
                     break;
+                     case 5:
+                    // Exit the program
+                    System.exit(0);
             }
 
         }
