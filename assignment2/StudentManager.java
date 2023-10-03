@@ -116,6 +116,18 @@ public class StudentManager {
                         System.out.println(s);
                     }
                     break;
+                case 4:
+                    System.out.println("Top 5 highest:");
+                    List<Student> top5Highest = topFiveHighest(students);
+                    for (Student s : top5Highest) {
+                        System.out.println(s);
+                    }
+                    System.out.println("\nTop 5 lowest:");
+                    List<Student> top5Lowest = topFiveLowest(students);
+                    for (Student s : top5Lowest) {
+                        System.out.println(s);
+                    }
+                    break;
             }
 
         }
