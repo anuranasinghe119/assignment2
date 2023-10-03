@@ -107,8 +107,18 @@ public class StudentManager {
                         System.out.println(s);
                     }
                     break;
+                case 3:
+                    System.out.print("Enter threshold: ");
+                    int threshold = scanner.nextInt();
+                    // Fetch and print students below the given threshold
+                    List<Student> belowThreshold = studentsBelowThreshold(students, threshold);
+                    for (Student s : belowThreshold) {
+                        System.out.println(s);
+                    }
+                    break;
             }
 
         }
     }
+}
 
